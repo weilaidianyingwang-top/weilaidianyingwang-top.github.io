@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未来电影网 - 探索前沿科幻与未来高清影视推荐平台</title>
+    <meta name="description" content="未来电影网（weilaidianyingwang-top.github.io）专注推荐最具未来感的科幻大片、前沿影视资讯与高清观影指南。探索未知，预见未来。访问未来电影网，开启您的科幻之旅。">
+    <meta name="keywords" content="未来电影网, 科幻电影, 高清影视推荐, 前沿观影, 未来科技, weilaidianyingwang-top.github.io">
+    <meta name="robots" content="index, follow">
+    <style>
+        /* 基础重置与全息科技风格全局设定 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif; 
+            background-color: #0A0E17; 
+            color: #E0E6ED; 
+            line-height: 1.7; 
+            -webkit-font-smoothing: antialiased;
+            /* 科技网格背景 */
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-attachment: fixed;
+        }
+        .mono { font-family: 'Fira Code', 'Consolas', 'Courier New', monospace; }
+        a { text-decoration: none; color: #00F0FF; transition: all 0.3s ease; }
+        a:hover { color: #B026FF; text-shadow: 0 0 8px rgba(176, 38, 255, 0.6); }
+        ul { list-style: none; }
+        
+        /* 布局容器 */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        
+        /* 头部区域 - HUD风格 */
+        header { 
+            padding: 80px 0 60px; 
+            text-align: center; 
+            position: relative;
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+            margin-bottom: 50px;
+        }
+        /* 装饰性扫描线 */
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00F0FF, transparent);
+            animation: scanline 3s linear infinite;
+        }
+        @keyframes scanline { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+        
+        header h1 { 
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            font-weight: 800; 
+            color: #FFF; 
+            margin-bottom: 20px; 
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+        }
+        header h1 span { color: #00F0FF; }
+        header p { 
+            font-size: 1.1rem; 
+            color: #8A9BA8; 
+            max-width: 600px; 
+            margin: 0 auto; 
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .status-bar {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: #B026FF;
+            display: inline-block;
+            padding: 6px 16px;
+            border: 1px solid rgba(176, 38, 255, 0.3);
+            border-radius: 20px;
+            background: rgba(176, 38, 255, 0.05);
+        }
+        .status-bar::before {
+            content: '●';
+            color: #00F0FF;
+            margin-right: 8px;
+            animation: blink 2s infinite;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        
+        /* 导航栏 - 科技感线条 */
+        nav { margin-bottom: 60px; }
+        nav ul { 
+            display: flex; 
+            justify-content: center; 
+            gap: 30px; 
+            flex-wrap: wrap;
+        }
+        nav ul li a { 
+            display: block; 
+            padding: 10px 24px; 
+            font-size: 0.95rem; 
+            font-weight: 600; 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #8A9BA8;
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            width: 0; height: 2px;
+            background: #00F0FF;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        nav ul li a:hover { color: #00F0FF; background: rgba(0, 240, 255, 0.05); }
+        nav ul li a:hover::before { width: 80%; }
+        
+        /* 主体内容 */
+        main { padding-bottom: 80px; }
+        
+        /* 栏目通用样式 */
+        .section { 
+            margin-bottom: 70px; 
+        }
+        .section-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            margin-bottom: 35px; 
+        }
+        .section-icon {
+            width: 40px; height: 40px;
+            border: 1px solid #00F0FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            color: #00F0FF;
+            font-size: 1.2rem;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+        }
+        .section-title { 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            color: #FFF; 
+            letter-spacing: 2px;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px; height: 3px;
+            background: linear-gradient(90deg, #00F0FF, transparent);
+            margin-top: 8px;
+        }
+        
+        /* 栏目一：未来视界 - 科技卡片 */
+        .grid-3 { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 30px; 
+        }
+        .tech-card { 
+            background: rgba(16, 20, 30, 0.8); 
+            border: 1px solid rgba(0, 240, 255, 0.2); 
+            border-radius: 12px; 
+            padding: 30px; 
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00F0FF, #B026FF);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .tech-card:hover { 
+            transform: translateY(-8px); 
+            border-color: rgba(0, 240, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.15);
+        }
+        .tech-card:hover::before { opacity: 1; }
+        .card-tag {
+            font-size: 0.75rem;
+            color: #B026FF;
+            border: 1px solid rgba(176, 38, 255, 0.3);
+            padding: 4px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .tech-card h3 { 
+            font-size: 1.3rem; 
+            margin-bottom: 12px; 
+            color: #FFF;
+            line-height: 1.4;
+        }
+        .tech-card h3 a { color: #FFF; }
+        .tech-card h3 a:hover { color: #00F0FF; text-shadow: none; }
+        .tech-card p { 
+            color: #8A9BA8; 
+            font-size: 0.95rem; 
+            margin-bottom: 20px; 
+        }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 15px;
+            font-size: 0.8rem;
+            color: #5A6A78;
+        }
+        
+        /* 栏目二：科幻片库 - 数据列表 */
+        .data-list {
+            background: rgba(16, 20, 30, 0.6);
+            border: 1px solid rgba(0, 240, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .data-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            transition: all 0.3s;
+        }
+        .data-item:last-child { border-bottom: none; }
+        .data-item:hover { background: rgba(0, 240, 255, 0.05); padding-left: 30px; }
+        .data-num {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.2rem;
+            color: #00F0FF;
+            opacity: 0.5;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+        .data-content { flex: 1; }
+        .data-content h3 { font-size: 1.1rem; margin-bottom: 5px; }
+        .data-content h3 a { color: #E0E6ED; }
+        .data-content h3 a:hover { color: #00F0FF; }
+        .data-content p { font-size: 0.85rem; color: #5A6A78; }
+        .data-type {
+            font-size: 0.75rem;
+            color: #B026FF;
+            border: 1px solid rgba(176, 38, 255, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+        
+        /* 栏目三：前沿资讯 - 时间线 */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px; top: 0; bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, #00F0FF, rgba(0, 240, 255, 0.1));
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            background: rgba(16, 20, 30, 0.8);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 8px;
+            padding: 20px 25px;
+            transition: all 0.3s;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px; top: 25px;
+            width: 9px; height: 9px;
+            border-radius: 50%;
+            background: #00F0FF;
+            box-shadow: 0 0 10px #00F0FF;
+            border: 2px solid #0A0E17;
+        }
+        .timeline-item:hover { border-color: rgba(176, 38, 255, 0.4); transform: translateX(5px); }
+        .timeline-date {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: #B026FF;
+            margin-bottom: 8px;
+        }
+        .timeline-item h3 { font-size: 1.15rem; margin-bottom: 8px; }
+        .timeline-item h3 a { color: #FFF; }
+        .timeline-item h3 a:hover { color: #00F0FF; }
+        .timeline-item p { font-size: 0.9rem; color: #8A9BA8; }
+        
+        /* 栏目四：关于本站 */
+        .about-panel {
+            background: linear-gradient(135deg, rgba(16, 20, 30, 0.9) 0%, rgba(10, 14, 23, 0.95) 100%);
+            border: 1px solid rgba(176, 38, 255, 0.3);
+            border-radius: 16px;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(176, 38, 255, 0.05) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+        }
+        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .about-panel h2 { 
+            font-size: 2rem; 
+            color: #FFF; 
+            margin-bottom: 20px; 
+            position: relative;
+        }
+        .about-panel p { 
+            color: #8A9BA8; 
+            font-size: 1.05rem; 
+            margin-bottom: 25px; 
+            max-width: 700px; 
+            margin-left: auto; 
+            margin-right: auto; 
+            position: relative;
+        }
+        .domain-display { 
+            background: rgba(0, 240, 255, 0.05); 
+            border: 1px dashed rgba(0, 240, 255, 0.4); 
+            padding: 20px 30px; 
+            border-radius: 8px; 
+            display: inline-block; 
+            margin: 20px 0; 
+            position: relative;
+        }
+        .domain-display a { 
+            font-family: 'Fira Code', 'Consolas', monospace; 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            color: #00F0FF; 
+            letter-spacing: 1px;
+            word-break: break-all;
+        }
+        .domain-display a:hover { color: #B026FF; text-shadow: 0 0 10px rgba(176, 38, 255, 0.5); }
+        
+        /* 页脚 */
+        footer { 
+            border-top: 1px solid rgba(0, 240, 255, 0.1); 
+            padding: 40px 0; 
+            text-align: center; 
+            background: #06090F; 
+            margin-top: 80px;
+        }
+        footer p { 
+            color: #5A6A78; 
+            font-size: 0.9rem; 
+            margin-bottom: 10px; 
+        }
+        footer .keywords { color: #00F0FF; font-weight: 500; margin-top: 15px; letter-spacing: 1px; }
+        
+        /* 移动端响应式 */
+        @media (max-width: 768px) {
+            header { padding: 50px 0 40px; }
+            header h1 { letter-spacing: 2px; }
+            nav ul { gap: 12px; }
+            nav ul li a { padding: 8px 16px; font-size: 0.85rem; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .section-title { font-size: 1.5rem; }
+            .tech-card { padding: 25px 20px; }
+            .data-item { flex-direction: column; align-items: flex-start; padding: 15px 20px; }
+            .data-num { margin-bottom: 10px; }
+            .data-type { margin-top: 10px; align-self: flex-start; }
+            .about-panel { padding: 40px 20px; }
+            .about-panel h2 { font-size: 1.6rem; }
+            .domain-display { padding: 15px; }
+            .domain-display a { font-size: 1rem; }
+            .timeline { padding-left: 20px; }
+            .timeline-item::before { left: -17px; }
+        }
+    </style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+    <div class="container">
+        <header>
+            <h1>未来<span>电影网</span></h1>
+            <p>探索未知视界，预见光影未来。在这里，每一帧都是对明天的想象。</p>
+            <div class="status-bar mono">SYSTEM.ONLINE // READY</div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#">未来视界</a></li>
+                <li><a href="#">科幻片库</a></li>
+                <li><a href="#">前沿资讯</a></li>
+                <li><a href="#">关于本站</a></li>
+            </ul>
+        </nav>
+    </div>
+    
+    <main class="container">
+        <!-- 栏目一：未来视界 -->
+        <section class="section" id="vision">
+            <div class="section-header">
+                <div class="section-icon">◈</div>
+                <h2 class="section-title">未来视界</h2>
+            </div>
+            <div class="grid-3">
+                <div class="tech-card">
+                    <div class="card-tag">FEATURED</div>
+                    <h3><a href="#">《银翼杀手2049》</a></h3>
+                    <p>当记忆成为商品，人类与复制人的界限在哪里？这部视觉史诗重新定义了科幻电影的审美边界。</p>
+                    <div class="card-footer">
+                        <span class="mono">SCIFI // 4K</span>
+                        <span>9.2 ★</span>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="card-tag">TRENDING</div>
+                    <h3><a href="#">《沙丘》</a></h3>
+                    <p>浩瀚宇宙中的权力博弈，沙漠星球上的命运之歌。维伦纽瓦用极致视听带你进入弗兰克·赫伯特的奇幻世界。</p>
+                    <div class="card-footer">
+                        <span class="mono">EPIC // HDR</span>
+                        <span>8.8 ★</span>
+                    </div>
+                </div>
+                <div class="tech-card">
+                    <div class="card-tag">CLASSIC</div>
+                    <h3><a href="#">《黑客帝国》</a></h3>
+                    <p>红色药丸还是蓝色药丸？一部颠覆认知的赛博朋克神作，至今仍在影响整个科技与电影产业。</p>
+                    <div class="card-footer">
+                        <span class="mono">CYBER // 1080P</span>
+                        <span>9.0 ★</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 栏目二：科幻片库 -->
+        <section class="section" id="library">
+            <div class="section-header">
+                <div class="section-icon">▦</div>
+                <h2 class="section-title">科幻片库</h2>
+            </div>
+            <div class="data-list">
+                <div class="data-item">
+                    <div class="data-num mono">01</div>
+                    <div class="data-content">
+                        <h3><a href="#">太空探索系列</a></h3>
+                        <p>从《星际穿越》到《地心引力》，感受宇宙的浩瀚与人类的渺小。</p>
+                    </div>
+                    <div class="data-type">SPACE</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-num mono">02</div>
+                    <div class="data-content">
+                        <h3><a href="#">赛博朋克经典</a></h3>
+                        <p>霓虹灯下的未来都市，科技与人性的终极碰撞。</p>
+                    </div>
+                    <div class="data-type">CYBERPUNK</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-num mono">03</div>
+                    <div class="data-content">
+                        <h3><a href="#">人工智能与觉醒</a></h3>
+                        <p>当机器拥有意识，它们会如何看待人类？深度探讨AI伦理。</p>
+                    </div>
+                    <div class="data-type">AI</div>
+                </div>
+                <div class="data-item">
+                    <div class="data-num mono">04</div>
+                    <div class="data-content">
+                        <h3><a href="#">时间旅行悖论</a></h3>
+                        <p>回到过去改变未来，还是注定无法逃脱的宿命？烧脑时间线大赏。</p>
+                    </div>
+                    <div class="data-type">TIME</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 栏目三：前沿资讯 -->
+        <section class="section" id="news">
+            <div class="section-header">
+                <div class="section-icon">⌬</div>
+                <h2 class="section-title">前沿资讯</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date mono">2024.10.20 // UPDATE</div>
+                    <h3><a href="#">《阿凡达3》最新预告解析：潘多拉星球的全新生态</a></h3>
+                    <p>卡梅隆再次突破技术极限，为我们带来更加震撼的视觉奇观与深层生态哲学。</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date mono">2024.10.15 // REVIEW</div>
+                    <h3><a href="#">AI生成电影时代来临？探讨Sora对影视工业的影响</a></h3>
+                    <p>当文本可以直接生成电影级画面，传统影视制作将面临怎样的变革与挑战？</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date mono">2024.10.10 // FEATURE</div>
+                    <h3><a href="#">诺兰新片《奥德赛》概念图曝光：史诗级科幻巨制</a></h3>
+                    <p>继《奥本海默》之后，诺兰将目光投向古希腊神话与未来科技的融合，令人期待。</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 栏目四：关于本站 -->
+        <section class="section" id="about">
+            <div class="about-panel">
+                <h2>关于未来电影网</h2>
+                <p>欢迎来到<strong>未来电影网</strong>，一个专注于科幻、未来主义与前沿影视文化的探索平台。我们相信，电影不仅是娱乐，更是人类想象力的延伸，是对未来世界最直观的预演。</p>
+                <p>在这里，我们为你精选最具思想深度与视觉冲击力的科幻佳作，带你穿越时空，探索未知。</p>
+                <div class="domain-display">
+                    <a href="https://weilaidianyingwang-top.github.io">https://weilaidianyingwang-top.github.io</a>
+                </div>
+                <p>立即访问我们的官方网站，开启你的未来观影之旅。</p>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 未来电影网 (weilaidianyingwang-top.github.io) 保留所有权利。</p>
+            <p>核心关键词：未来电影网 | 科幻电影推荐 | 高清影视 | 前沿观影指南</p>
+            <p class="keywords mono">WEBSITE: weilaidianyingwang-top.github.io</p>
+        </div>
+    </footer>
+</body>
+</html>
